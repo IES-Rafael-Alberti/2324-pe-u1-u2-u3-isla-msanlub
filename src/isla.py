@@ -220,6 +220,7 @@ def pedir_movimiento(mapa: list) -> str:
             
         elif entrada == CODIGO_OCULTO_PROGRAMADOR:
             imprimir_mapa(mapa)
+            entrada_correcta = True
 
         if entrada_correcta:
             entrada = input("Ingresa tu movimiento (formato: 'u:arriba', 'd:abajo', 'l:izquierda', 'r:derecha', q:salir): ")
@@ -236,8 +237,8 @@ def obtener_nueva_posicion(posicion_jugador: tuple, movimiento: str) -> tuple:
     :return: La nueva posición del jugador.
     """
 
-    direccion = MOVIMIENTOS(movimiento)
-    nueva_posicion = (posicion_jugador[FILAS] + direccion[FILAS], posicion_jugador[COLUMNAS] + direccion[COLUMNAS])
+    direccion = MOVIMIENTOS[movimiento]
+    nueva_posicion = posicion_jugador[FILAS] + direccion[FILAS], posicion_jugador[COLUMNAS] + (direccion[COLUMNAS])
     return nueva_posicion
 
 
